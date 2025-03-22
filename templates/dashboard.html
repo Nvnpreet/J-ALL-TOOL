@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" x-data="{ ping: 'Calculating...', time: 'Loading...' }">
 <head>
-Server start time for uptime tracking
-start_time = datetime.now()
-
-Visitor Counter
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>𝐉𝐔𝐋𝐌𝐈 𝐖𝐄𝐁 𝐏𝐀𝐆𝐄</title>
@@ -192,6 +188,8 @@ Visitor Counter
         <div> 
     <p>ms: <span id="pingValue">Calculating...</span></p> 
     <p>TIME: <span id="timeValue">Loading...</span></p> 
+    global visitor_count
+    visitor_count += 1  # Visitor count increase
    </div> 
         <h1>𝐀𝐋𝐋 𝐓𝐎𝐎𝐋𝐒</h1> 
         <section class="service-section">
@@ -238,20 +236,10 @@ Visitor Counter
         <p>© 𝟐𝟎𝟐𝟓 ᴏᴡɴᴇʀ:-𝐉𝐔𝐋𝐌𝐈 𝐉𝐀𝐀𝐓</p>
     <p> 𝐌𝐀𝐃𝐄 𝐁𝐘:-ᴊᴜʟᴍɪ ᴊᴀᴀᴛ ᴡᴇʙ ᴀʟʟ ᴛᴏᴏʟꜱ ᴇɴᴊᴏʏ ɢʏꜱ 🙂  
     <a href="https://www.facebook.com/profile.php?id=100078833520452">ᴄᴏɴᴛᴀᴄᴛ ᴍᴇ ᴏɴ ꜰᴀᴄᴇʙᴏᴏᴋ </a> 
-    <div class="mb-3"> 
-<div class="uptime-box">
-      <h3 id="uptimeDisplay">Uptime: Loading...</h3>
-      <h3 id="visitorDisplay">Total Visitors: Loading...</h3>
-    </div>   
+    <div class="mb-3">    
     </div> 
       </footer>
     <script>
-    @app.route('/uptime')
-def uptime():
-    global visitor_count
-    uptime_seconds = (datetime.now() - start_time).total_seconds()
-    uptime_str = f"{int(uptime_seconds // 3600)}h {int((uptime_seconds % 3600) // 60)}m {int(uptime_seconds % 60)}s"
-    return jsonify({"uptime": uptime_str, "visitors": visitor_count}) 
 // Function to calculate live ping
         function calculateLivePing() {
             var startTime = new Date().getTime();
